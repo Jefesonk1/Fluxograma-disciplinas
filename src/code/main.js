@@ -1,76 +1,99 @@
+import * as materias from './materias.js';
+Object.assign(globalThis, materias);
+
 const disciplinas = new Map();
-disciplinas.set("icc", { preReq: [], posReq: ["alg-prog"] });
-disciplinas.set("alg-prog", { preReq: ["icc"], posReq: ["aeds"] });
-disciplinas.set("aeds", {
-  preReq: ["alg-prog"],
+disciplinas.set(introducao_engenharia_quimica, { preReq: [], posReq: [programacao_engenharia_quimica] });
+disciplinas.set(fundamentos_do_calculo, { preReq: [], posReq: [calculo_1,fundamentos_mecanica,laboratorio_mecanica] });
+disciplinas.set(quimica_geral_1, {
+  preReq: [],
   posReq: [
-    "tbo",
-    "bd",
-    "ia",
-    "poo",
-    "osa",
-    "po",
-    "parad",
-    "cg",
-    "pdi",
-    "compiladores",
+    quimica_geral_2,
+    microbiologia,
+    quimica_geral_experimental_2,
+    quimica_organica_1,
+    quimica_inorganica,
   ],
 });
-disciplinas.set("tbo", { preReq: ["aeds"], posReq: ["paa"] });
-disciplinas.set("osa", { preReq: ["aeds"], posReq: ["bd2"] });
-disciplinas.set("bd", { preReq: ["aeds"], posReq: ["bd2"] });
-disciplinas.set("bd2", { preReq: ["bd", "osa"], posReq: [] });
-disciplinas.set("ia", { preReq: ["aeds"], posReq: [] });
-disciplinas.set("etica", { preReq: [], posReq: [] });
-disciplinas.set("adm", { preReq: [], posReq: [] });
-disciplinas.set("c1", { preReq: [], posReq: ["c2", "analise", "fisica1"] });
-disciplinas.set("c2", { preReq: ["c1"], posReq: ["estatistica"] });
-disciplinas.set("fisica1", { preReq: ["c1"], posReq: ["fisica2"] });
-disciplinas.set("fisica2", { preReq: ["fisica1"], posReq: [] });
-disciplinas.set("po", { preReq: ["aeds", "algebra"], posReq: [] });
-disciplinas.set("aps", { preReq: ["engenharia"], posReq: [] });
-disciplinas.set("cg", { preReq: ["aeds", "algebra"], posReq: [] });
-disciplinas.set("pdi", { preReq: ["aeds", "algebra"], posReq: [] });
-disciplinas.set("empreendedorismo", { preReq: [], posReq: [] });
-disciplinas.set("opt4", { preReq: [], posReq: [] });
-disciplinas.set("ga", { preReq: [], posReq: ["algebra"] });
-disciplinas.set("ingles1", { preReq: [], posReq: ["ingles2"] });
-disciplinas.set("algebra", { preReq: ["ga"], posReq: ["po", "cg", "pdi"] });
-disciplinas.set("ingles2", { preReq: ["ingles1"], posReq: [] });
-disciplinas.set("sd", { preReq: [], posReq: ["arq1"] });
-disciplinas.set("discreta", {
-  preReq: [],
-  posReq: ["intro-graf", "paa", "lfa"],
+disciplinas.set(quimica_geral_experimental_1, { preReq: [], posReq: [quimica_geral_experimental_2, laboratorio_processos_quimicos] });
+disciplinas.set(geometria_analitica_algebra_linear, { preReq: [], posReq: [] });
+disciplinas.set(metodologia_cientifica, { preReq: [], posReq: [] });
+//p2
+disciplinas.set(calculo_1, { preReq: [fundamentos_do_calculo], posReq: [calculo_2, laboratorio_eletromagnetismo] });
+disciplinas.set(fundamentos_mecanica, { preReq: [fundamentos_do_calculo], posReq: [fundamentos_eletromagnetismo, mecanica_resistencia_materiais] });
+disciplinas.set(quimica_geral_2, { preReq: [quimica_geral_1], posReq: [fisico_quimica_1, quimica_analitica, quimica_analitica_experimental, corrosao] });
+disciplinas.set(quimica_geral_experimental_2, { preReq: [quimica_geral_experimental_1, quimica_geral_1 ], posReq: [laboratorio_processos_quimicos] });
+disciplinas.set(laboratorio_mecanica, { preReq: [fundamentos_do_calculo], posReq: [] });
+disciplinas.set(microbiologia, { preReq: [quimica_geral_1], posReq: [] });
+//p3
+disciplinas.set(calculo_2, { preReq: [calculo_1], posReq: [calculo_3, equacoes_diferenciais] });
+disciplinas.set(estatistica_basica, { preReq: [], posReq: [planejamento_experimental] });
+disciplinas.set(quimica_organica_1, { preReq: [quimica_geral_1], posReq: [quimica_organica_2] });
+disciplinas.set(fisico_quimica_1, { preReq: [quimica_geral_2], posReq: [principios_balancos_massa_energia, fisico_quimica_2, fisico_quimica_experimental, termodinamica_aplicada] });
+disciplinas.set(programacao_engenharia_quimica, { preReq: [introducao_engenharia_quimica], posReq: [introducao_analise_processos] });
+disciplinas.set(administracao_empreendedorismo, { preReq: [], posReq: [] });
+disciplinas.set(optativa_1, { preReq: [], posReq: [] });
+//p4
+disciplinas.set(calculo_3, { preReq: [calculo_2], posReq: [fenomenos_transporte_1] });
+disciplinas.set(desenho_tecnico, { preReq: [], posReq: [] });
+disciplinas.set(quimica_organica_2, { preReq: [quimica_organica_1], posReq: [] });
+disciplinas.set(equacoes_diferenciais, { preReq: [calculo_2], posReq: [introducao_analise_processos] });
+disciplinas.set(principios_balancos_massa_energia, { preReq: [fisico_quimica_1], posReq: [desenvolvimento_processos_quimicos,laboratorio_processos_quimicos,engenharia_meio_ambiente, cinetica_calculo_reatores_1] });
+disciplinas.set(fisico_quimica_2, {
+  preReq: [fisico_quimica_1],
+  posReq: [],
 });
-disciplinas.set("metodo", { preReq: [], posReq: [] });
-disciplinas.set("arq1", { preReq: ["sd"], posReq: ["arq2"] });
-disciplinas.set("intro-graf", { preReq: ["discreta"], posReq: ["alg-graf"] });
-disciplinas.set("estatistica", { preReq: ["c2"], posReq: [] });
-disciplinas.set("arq2", { preReq: ["arq1"], posReq: ["so"] });
-disciplinas.set("poo", { preReq: ["aeds"], posReq: ["web", "engenharia"] });
-disciplinas.set("analise", { preReq: ["c1"], posReq: [] });
-disciplinas.set("engenharia", { preReq: ["poo"], posReq: ["aps"] });
-disciplinas.set("so", { preReq: ["arq2"], posReq: ["sb", "sis-dis"] });
-disciplinas.set("web", { preReq: ["poo"], posReq: [] });
-disciplinas.set("paa", {
-  preReq: ["aeds", "discreta"],
-  posReq: ["alg-graf", "complexidade"],
+disciplinas.set(fisico_quimica_experimental, {
+  preReq: [fisico_quimica_1],
+  posReq: [],
 });
-disciplinas.set("parad", { preReq: ["aeds"], posReq: [] });
-disciplinas.set("sb", { preReq: ["so"], posReq: ["compiladores"] });
-disciplinas.set("alg-graf", { preReq: ["paa", "intro-graf"], posReq: [] });
-disciplinas.set("sis-dis", { preReq: ["so"], posReq: [] });
-disciplinas.set("redes", { preReq: [], posReq: [] });
-disciplinas.set("lfa", { preReq: ["discreta"], posReq: ["compiladores"] });
-disciplinas.set("complexidade", { preReq: ["paa"], posReq: [] });
-disciplinas.set("compiladores", { preReq: ["aeds", "lfa", "sb"], posReq: [] });
-disciplinas.set("projetos", { preReq: [], posReq: [] });
-disciplinas.set("opt1", { preReq: [], posReq: [] });
-disciplinas.set("opt2", { preReq: [], posReq: [] });
-disciplinas.set("si", { preReq: [], posReq: [] });
-disciplinas.set("tcc", { preReq: [], posReq: [] });
-disciplinas.set("opt3", { preReq: [], posReq: [] });
-disciplinas.set("opt5", { preReq: [], posReq: [] });
+//p5
+disciplinas.set(introducao_analise_processos, { preReq: [equacoes_diferenciais, programacao_engenharia_quimica], posReq: [fenomenos_transporte_1, controle_processos, analise_simulacao_otimizacao_processos] });
+disciplinas.set(termodinamica_aplicada, { preReq: [fisico_quimica_1], posReq: [operacoes_unitarias_3] });
+disciplinas.set(quimica_inorganica, { preReq: [quimica_geral_1], posReq: [] });
+disciplinas.set(quimica_analitica, { preReq: [quimica_geral_2], posReq: [] });
+disciplinas.set(quimica_analitica_experimental, { preReq: [quimica_geral_2], posReq: [] });
+disciplinas.set(fundamentos_eletromagnetismo, { preReq: [fundamentos_mecanica], posReq: [instrumentacao_automacao] });
+disciplinas.set(unidade_curricular_extensao_1, { preReq: [], posReq: [] });
+//p6
+disciplinas.set(mecanica_resistencia_materiais, { preReq: [fundamentos_mecanica], posReq: [] });
+disciplinas.set(fenomenos_transporte_1, { preReq: [introducao_analise_processos, calculo_3], posReq: [fenomenos_transporte_2, operacoes_unitarias_1, laboratorio_engenharia_quimica_1, fenomenos_transporte_3] });
+disciplinas.set(desenvolvimento_processos_quimicos, { preReq: [principios_balancos_massa_energia], posReq: [] });
+disciplinas.set(instrumentacao_automacao, {
+  preReq: [fundamentos_eletromagnetismo],
+  posReq: [controle_processos],
+});
+disciplinas.set(laboratorio_eletromagnetismo, { preReq: [calculo_1, fundamentos_mecanica], posReq: [] });
+disciplinas.set(planejamento_experimental, { preReq: [estatistica_basica], posReq: [] });
+disciplinas.set(unidade_curricular_extensao_2, { preReq: [], posReq: [] });
+//p7
+disciplinas.set(fenomenos_transporte_2, { preReq: [fenomenos_transporte_1], posReq: [operacoes_unitarias_2, laboratorio_engenharia_quimica_2] });
+disciplinas.set(corrosao, { preReq: [quimica_geral_2], posReq: [] });
+disciplinas.set(operacoes_unitarias_1, { preReq: [fenomenos_transporte_1], posReq: [projeto_processos_instalacoes_quimicas, laboratorio_engenharia_quimica_3] });
+disciplinas.set(cinetica_calculo_reatores_1, { preReq: [principios_balancos_massa_energia], posReq: [cinetica_calculo_reatores_2, engenharia_bioquimica] });
+disciplinas.set(laboratorio_engenharia_quimica_1, { preReq: [fenomenos_transporte_1], posReq: [] });
+disciplinas.set(laboratorio_processos_quimicos, { preReq: [principios_balancos_massa_energia, quimica_geral_experimental_2], posReq: [] });
+disciplinas.set(optativa_2, { preReq: [], posReq: [] });
+//p8
+disciplinas.set(fenomenos_transporte_3, { preReq: [fenomenos_transporte_1], posReq: [analise_simulacao_otimizacao_processos] });
+disciplinas.set(controle_processos, { preReq: [instrumentacao_automacao, introducao_analise_processos], posReq: [] });
+disciplinas.set(operacoes_unitarias_2, { preReq: [fenomenos_transporte_2], posReq: [] });
+disciplinas.set(cinetica_calculo_reatores_2, { preReq: [cinetica_calculo_reatores_1], posReq: [laboratorio_engenharia_quimica_4] });
+disciplinas.set(laboratorio_engenharia_quimica_2, { preReq: [fenomenos_transporte_2], posReq: [] });
+disciplinas.set(seguranca_meio_ambiente_saude, { preReq: [], posReq: [] });
+disciplinas.set(unidade_curricular_extensao_3, { preReq: [], posReq: [] });
+//p9
+disciplinas.set(gestao_producao_qualidade, { preReq: [], posReq: [] });
+disciplinas.set(projeto_processos_instalacoes_quimicas, { preReq: [operacoes_unitarias_1], posReq: [] });
+disciplinas.set(operacoes_unitarias_3, { preReq: [termodinamica_aplicada], posReq: [laboratorio_engenharia_quimica_4] });
+disciplinas.set(engenharia_bioquimica, { preReq: [cinetica_calculo_reatores_1], posReq: [] });
+disciplinas.set(laboratorio_engenharia_quimica_3, { preReq: [operacoes_unitarias_1], posReq: [] });
+disciplinas.set(sociedade_organizacoes, { preReq: [], posReq: [] });
+disciplinas.set(tcc_1, { preReq: [], posReq: [tcc_2] });
+//p10
+disciplinas.set(engenharia_meio_ambiente, { preReq: [principios_balancos_massa_energia], posReq: [] });
+disciplinas.set(analise_simulacao_otimizacao_processos, { preReq: [introducao_analise_processos, fenomenos_transporte_3], posReq: [] });
+disciplinas.set(laboratorio_engenharia_quimica_4, { preReq: [cinetica_calculo_reatores_2, operacoes_unitarias_3], posReq: [] });
+disciplinas.set(tcc_2, { preReq: [tcc_1], posReq: [] });
 
 // Estiliza elementos
 let styleMap = {
@@ -114,6 +137,7 @@ let currentReqs = {
 let divs = document.querySelectorAll(".dsp");
 divs.forEach((div) => {
   div.addEventListener("mouseover", (e) => {
+    console.log(disciplinas);
     currentReqs.actual = div.id;
     currentReqs.parentReq = disciplinas.get(currentReqs.actual).preReq;
     currentReqs.childReq = disciplinas.get(currentReqs.actual).posReq;

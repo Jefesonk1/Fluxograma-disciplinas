@@ -554,6 +554,40 @@ video {
   display: none;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -591,6 +625,10 @@ video {
   margin-right: auto;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -599,16 +637,8 @@ video {
   margin-left: 1rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
 .box-content {
   box-sizing: content-box;
-}
-
-.block {
-  display: block;
 }
 
 .flex {
@@ -644,12 +674,6 @@ video {
   flex: 1 1 0%;
 }
 
-.scale-150 {
-  --tw-scale-x: 1.5;
-  --tw-scale-y: 1.5;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -682,12 +706,12 @@ video {
   justify-content: space-between;
 }
 
-.gap-12 {
-  gap: 3rem;
-}
-
 .gap-3 {
   gap: 0.75rem;
+}
+
+.gap-12 {
+  gap: 3rem;
 }
 
 .gap-4 {
@@ -755,16 +779,16 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.pb-16 {
-  padding-bottom: 4rem;
-}
-
 .pb-3 {
   padding-bottom: 0.75rem;
 }
 
 .pb-5 {
   padding-bottom: 1.25rem;
+}
+
+.pb-16 {
+  padding-bottom: 4rem;
 }
 
 .text-center {
@@ -798,11 +822,6 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
-}
-
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
@@ -813,12 +832,12 @@ video {
   outline-style: solid;
 }
 
-.outline-2 {
-  outline-width: 2px;
-}
-
 .outline-4 {
   outline-width: 4px;
+}
+
+.outline-2 {
+  outline-width: 2px;
 }
 
 .outline-green-300 {
